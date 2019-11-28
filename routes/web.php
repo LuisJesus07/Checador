@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//rutas de modulo de usuarios
+Route::get('/usuarios', 'UserController@index')->name('usuarios');
+Route::get('/usuario/{id}', 'UserController@show')->name('usuario');
+Route::post('/usuario', 'UserController@store')->name('usuario');
+Route::put('/usuario', 'UserController@update')->name('usuario');
+Route::delete('/usuario/{id}', 'UserController@destroy');
