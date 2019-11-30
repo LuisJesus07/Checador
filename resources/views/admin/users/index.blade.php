@@ -41,7 +41,7 @@
 		            <a href="#" class="btn btn-sm btn-warning" onclick="getDataBack({{$usuario->id}})" data-toggle="modal" data-target="#ModalEdit">
 		              <i class="fas fa-edit"></i> Editar
 		            </a>
-		            <a href="#" class="btn btn-sm btn-primary">
+		            <a href="/usuario_detail/{{$usuario->id}}" class="btn btn-sm btn-primary">
 		              <i class="fas fa-user"></i> Ver Perfil
 		            </a>
 		          </div>

@@ -90,6 +90,21 @@ class UserController extends Controller
         
     }
 
+    public function detail($id){
+
+        if(Auth::user()->hasPermissionTo('Administrar usuarios') || 
+           Auth::user()->hasPermissionTo('Visualizar usuarios') ){
+
+            $usuario = User::find($id);
+
+            return view('admin.users.user_detail',compact('usuario'));
+
+        }else{
+            return redirect()->back()->with('error','No permitido');
+        }
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
