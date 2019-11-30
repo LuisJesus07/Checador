@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -26,3 +26,10 @@ Route::get('/usuario/{id}', 'UserController@show')->name('usuario');
 Route::post('/usuario', 'UserController@store')->name('usuario');
 Route::put('/usuario', 'UserController@update')->name('usuario');
 Route::delete('/usuario/{id}', 'UserController@destroy');
+
+//rutas del modulo de proyectos
+Route::get('/proyectos', 'ProjectController@index')->name('proyectos');
+Route::get('/proyecto/{id}', 'ProjectController@show')->name('proyecto');
+Route::post('/proyecto', 'ProjectController@store')->name('proyecto');
+Route::put('/proyecto', 'ProjectController@update')->name('proyecto');
+Route::delete('/proyecto/{id}', 'ProjectController@destroy');

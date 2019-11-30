@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('app_assets/sweetalert/sweetalert.css')}}">
 
+@section('title','Usuarios')
+
 @section('content')
 	
 	<!--
