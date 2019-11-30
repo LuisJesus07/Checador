@@ -30,6 +30,7 @@ Route::delete('/usuario/{id}', 'UserController@destroy');
 //rutas del modulo de proyectos
 Route::get('/proyectos', 'ProjectController@index')->name('proyectos');
 Route::get('/proyecto/{id}', 'ProjectController@show')->name('proyecto');
+Route::get('/proyecto_detail/{id}', 'ProjectController@detail')->name('proyecto_detail');
 Route::post('/proyecto', 'ProjectController@store')->name('proyecto');
 Route::put('/proyecto', 'ProjectController@update')->name('proyecto');
 Route::delete('/proyecto/{id}', 'ProjectController@destroy');

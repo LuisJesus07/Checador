@@ -10,9 +10,9 @@
 
 @section('content')
 
-<ol class="float-sm-right">
+<!--<ol class="float-sm-right">
   <button class="btn btn-primary" data-toggle="modal" data-target="#Modal">Agregar</button>
-</ol>
+</ol>-->
 
 <div class="card">
     <div class="card-header">
@@ -36,7 +36,7 @@
 	          <td>{{$project->fechaInicio}}</td>
 	          <td>{{$project->fechaCierre}}</td>
 	          <td class="project-actions">
-	              <a class="btn btn-primary btn-sm" href="#">
+	              <a class="btn btn-primary btn-sm" href="/proyecto_detail/{{$project->id}}">
 	                  <i class="fas fa-folder">
 	                  </i>
 	                  Ver

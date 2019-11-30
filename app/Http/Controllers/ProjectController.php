@@ -87,6 +87,13 @@ class ProjectController extends Controller
         
     }
 
+    public function detail($id){
+
+        $project = Project::find($id);
+
+        return view('admin.projects.project_detail', compact('project'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

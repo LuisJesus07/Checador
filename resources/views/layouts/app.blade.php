@@ -59,7 +59,6 @@
             
         </div>
         
-        @include('layouts.footer')
     </div>
     
   @yield('modals')
