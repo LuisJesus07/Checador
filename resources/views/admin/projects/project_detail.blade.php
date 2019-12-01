@@ -68,14 +68,16 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($users as $user)
               <tr>
-                <td>Luis Jesus Aviles Morales</td>
+                <td>{{$user->nombre}} {{$user->apellidos}}</td>
                 <td class="py-0 align-middle">
                   <div class="btn-group btn-group-sm">
-                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                    <a href="/usuario_detail/{{$user->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                   </div>
                 </td>
                </tr>
+               @endforeach
               
             </tbody>
           </table>

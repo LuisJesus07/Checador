@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Project;
 use Auth;
 
 class UserController extends Controller
@@ -30,15 +31,6 @@ class UserController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -96,8 +88,9 @@ class UserController extends Controller
            Auth::user()->hasPermissionTo('Visualizar usuarios') ){
 
             $usuario = User::find($id);
+            $proyectos = Project::where('status','active')->get();
 
-            return view('admin.users.user_detail',compact('usuario'));
+            return view('admin.users.user_detail',compact('usuario','proyectos'));
 
         }else{
             return redirect()->back()->with('error','No permitido');
@@ -105,16 +98,28 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function inscribeToProject(Request $request, $id){
+
+        if(Auth::user()->hasPermissionTo('Administrar usuarios') || 
+           Auth::user()->hasPermissionTo('Agregar usuarios') ){
+
+            $usuario = User::find($id);
+
+            $usuario->projects()->attach($request['proyecto']);
+
+            return redirect()->back()->with('success','ok'); 
+        
+        }else{
+            return redirect()->back()->with('error','No permitido');
+        }
+
+          
+        
+
+        //return redirect()->back()->with('error','ok');
     }
+
+    
 
     /**
      * Update the specified resource in storage.

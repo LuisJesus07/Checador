@@ -24,6 +24,18 @@ Route::get('/pruebaRelacion', function(){
 	return $usuario->checks()->get();
 });
 
+Route::get('/pruebaUserProject', function(){
+
+	//$usuario = App\User::findOrFail(2);
+
+	//return $usuario->projects()->get();
+
+	$proyecto = App\Project::findOrFail(2);
+
+	return $proyecto->users()->get();
+
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -35,6 +47,7 @@ Route::get('/usuario_detail/{id}', 'UserController@detail')->name('usuario_detai
 Route::post('/usuario', 'UserController@store')->name('usuario');
 Route::put('/usuario', 'UserController@update')->name('usuario');
 Route::delete('/usuario/{id}', 'UserController@destroy');
+Route::post('/inscribeToProject/{id}', 'UserController@inscribeToProject')->name('inscribeToProject');
 
 //rutas del modulo de proyectos
 Route::get('/proyectos', 'ProjectController@index')->name('proyectos');
@@ -43,3 +56,5 @@ Route::get('/proyecto_detail/{id}', 'ProjectController@detail')->name('proyecto_
 Route::post('/proyecto', 'ProjectController@store')->name('proyecto');
 Route::put('/proyecto', 'ProjectController@update')->name('proyecto');
 Route::delete('/proyecto/{id}', 'ProjectController@destroy');
+
+
