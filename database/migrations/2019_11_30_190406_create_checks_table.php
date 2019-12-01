@@ -15,11 +15,14 @@ class CreateChecksTable extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->time('horaEntrada');
             $table->time('horaSalida');
             $table->date('fecha');
             $table->time('duracion');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
