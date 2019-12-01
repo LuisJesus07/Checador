@@ -41,6 +41,11 @@ class User extends Authenticatable
     ];
 
     public function checks(){
+        
         return $this->hasMany(Check::class);
+    }
+
+    public function projects(){
+        return $this->belongsToMany(Project::class, 'user_project');
     }
 }

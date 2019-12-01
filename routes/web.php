@@ -17,6 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/pruebaRelacion', function(){
+
+	$usuario = App\User::findOrFail(2);
+
+	return $usuario->checks()->get();
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
