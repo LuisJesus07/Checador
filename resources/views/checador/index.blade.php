@@ -45,5 +45,5 @@
 @section('scripts')
     
     <script src="{{asset('js/tiempoChecador.js')}}"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 @endsection

@@ -66,6 +66,10 @@ Route::get('/checador', function(){
 	return view('checador.index');
 });
 
+Route::get('/configuracion', function(){
+	return view('admin.config.index');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -89,3 +93,7 @@ Route::delete('/proyecto/{id}', 'ProjectController@destroy');
 
 //rutas de checks
 Route::get('/check', 'CheckController@index')->name('check');
+
+//rutas de configuracion
+Route::post('/config_segundos', 'ConfigurationController@update')->name('config_segundos');
+Route::get('/get_segundos', 'ConfigurationController@getSegundos')->name('get_segundos');

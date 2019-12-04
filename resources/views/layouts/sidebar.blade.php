@@ -49,7 +49,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
+            <a href="/configuracion" class="nav-link {{ (request()->is('configuracion*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Configuración
