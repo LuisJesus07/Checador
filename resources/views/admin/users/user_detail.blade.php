@@ -59,7 +59,7 @@
 		          <div class="form-group">
 		            <label for="inputName">Checks</label>
 		            <div class="text-muted">
-		            	<label>80</label>
+		            	<label>{{$checks}}</label>
 		            </div>
 		          </div>
 		          <div class="form-group">

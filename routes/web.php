@@ -19,9 +19,9 @@ Auth::routes();
 
 Route::get('/pruebaRelacion', function(){
 
-	$usuario = App\User::findOrFail(2);
+	$usuario = App\User::findOrFail(1);
 
-	return $usuario->checks()->get();
+	return $usuario->checks()->whereStatus('concluida')->get()->count();
 });
 
 Route::get('/pruebaUserProject', function(){
@@ -34,6 +34,10 @@ Route::get('/pruebaUserProject', function(){
 
 	return $proyecto->users()->get();
 
+});
+
+Route::get('/checador', function(){
+	return view('check.index');
 });
 
 
@@ -57,4 +61,5 @@ Route::post('/proyecto', 'ProjectController@store')->name('proyecto');
 Route::put('/proyecto', 'ProjectController@update')->name('proyecto');
 Route::delete('/proyecto/{id}', 'ProjectController@destroy');
 
-
+//rutas de checks
+Route::get('/check', 'CheckController@index')->name('check');

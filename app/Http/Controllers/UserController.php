@@ -89,8 +89,9 @@ class UserController extends Controller
 
             $usuario = User::find($id);
             $proyectos = Project::where('status','active')->get();
+            $checks = $usuario->checks()->whereStatus('concluida')->get()->count();
 
-            return view('admin.users.user_detail',compact('usuario','proyectos'));
+            return view('admin.users.user_detail',compact('usuario','proyectos','checks'));
 
         }else{
             return redirect()->back()->with('error','No permitido');
