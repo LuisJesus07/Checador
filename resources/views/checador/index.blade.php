@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('title','Checar')
 
 @section('content')
@@ -10,7 +12,9 @@
       <div class="col-12">
         <div class="callout callout-info">
           <h5><i class="fas fa-info"></i> Nota:</h5>
-          Esta pagina solo estara disponible durante 15 segundos.
+          Esta pagina solo estara disponible durante unos segundos.
+
+          <h4 class="segundos float-right" style="font-size: 50px; margin-top: -4%; font-weight: bold;"></h4>
         </div>
 
 
@@ -35,5 +39,11 @@
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </section>
+
+@endsection
+
+@section('scripts')
+    
+    <script src="{{asset('js/tiempoChecador.js')}}"></script>
 
 @endsection
