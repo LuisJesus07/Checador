@@ -77,8 +77,10 @@ Route::get('/', function(){
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
+//ruta de usuario comunt
+Route::get('/home', 'UserController@detail')->name('home');
 
 //rutas de modulo de usuarios
 Route::get('/usuarios', 'UserController@index')->name('usuarios');

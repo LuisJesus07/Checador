@@ -48,7 +48,12 @@
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Actividad</a></li>
               <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Ultimos Checks</a></li>
-              <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Inscribir a Proyecto</a></li>
+              @if(Auth::user()->role == 1 )
+                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Inscribir a Proyecto</a></li>
+              @endif
+              @if(Auth::user()->role == 2 )
+                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Mis Proyectos</a></li>
+              @endif
             </ul>
           </div><!-- /.card-header -->
           <div class="card-body">
@@ -102,27 +107,51 @@
                 @endforeach
               </div>
               <!-- /.tab-pane -->
+              @if(Auth::user()->role == 1 )
+                <div class="tab-pane" id="settings">
+                  <form class="form-horizontal" method="POST" action="/inscribeToProject/{{$usuario->id}}">
+                    @csrf
+                    <div class="form-group row">
+                      <label for="inputName" class="col-sm-2 col-form-label">Proyecto</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" name="proyecto">
+                          @foreach($proyectos as $proyecto)
+                          <option value="{{$proyecto->id}}">{{$proyecto->nombre}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Inscribir</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              @endif
 
-              <div class="tab-pane" id="settings">
-                <form class="form-horizontal" method="POST" action="/inscribeToProject/{{$usuario->id}}">
-                  @csrf
-                  <div class="form-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label">Proyecto</label>
-                    <div class="col-sm-10">
-                      <select class="form-control" name="proyecto">
-                        @foreach($proyectos as $proyecto)
-                        <option value="{{$proyecto->id}}">{{$proyecto->nombre}}</option>
+              @if(Auth::user()->role == 2 )
+                <div class="tab-pane" id="settings">
+                  <div class="timeline timeline-inverse">
+                      <div>
+                        <i class="fas fa-project-diagram bg-info"></i>
+
+                        @foreach($misProyectos as $proyecto)
+                          <div class="timeline-item">
+                            <span class="time"><i class="far fa-clock"></i> {{$proyecto->created_at}}</span>
+
+                            <h3 class="timeline-header border-0"><a>{{$proyecto->nombre}}</a>
+                            </h3>
+                          </div>
                         @endforeach
-                      </select>
+                      </div>
+                      <!-- END timeline item -->
+                      <!-- timeline item -->
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                      <button type="submit" class="btn btn-primary">Inscribir</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+                      
+                    
+                </div>
+              @endif
               <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->

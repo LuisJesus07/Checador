@@ -21,8 +21,7 @@
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Starter Page</li>
+                      
                       @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                           <strong>Great</strong> Your process has finished successfully

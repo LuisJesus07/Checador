@@ -38,17 +38,17 @@
           </button>
         </div>
       @endif
-    
+
     <!-- Content Header (Page header) -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="callout callout-info">
+            <div class="callout callout-info" style="margin-top: 1.5%;">
               <h5><i class="fas fa-info"></i> Nota:</h5>
               Esta pagina solo estara disponible durante unos segundos.
 
-              <h4 class="segundos float-right" style="font-size: 50px; margin-top: -4%; font-weight: bold;"></h4>
+              <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
             </div>
 
 
@@ -58,11 +58,78 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> AdminLTE, Inc.
-                    <small class="float-right">Date: 2/10/2014</small>
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-3">
 
-                    <h3>Usuario</h3>
-                    <label>{{$usuario->nombre}}</label>
+                          <!-- Profile Image -->
+                          <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                              <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="{{asset('app_assets/dist/img/userIcon.jpg')}}"
+                                     alt="User profile picture">
+                              </div>
+
+                              <h3 class="profile-username text-center">{{$usuario->nombre}}</h3>
+
+                              <p class="text-muted text-center">{{$usuario->apellidos}}</p>
+
+                              <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                  <b>F. Nacimiento</b> <a class="float-right">{{$usuario->fechaNacimiento}}</a>
+                                </li>
+                                <li class="list-group-item">
+                                  <b>Telefono</b> <a class="float-right">{{$usuario->telefono}}</a>
+                                </li>
+                                <li class="list-group-item">
+                                  <b>Email</b> <a class="float-right">{{$usuario->email}}</a>
+                                </li>
+                              </ul>
+
+                            </div>
+                            <!-- /.card-body -->
+                          </div>
+                          <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-9">
+                          <div class="card">
+                            <div class="card-header p-2">
+                              <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Actividad</a></li>
+                              </ul>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                              <div class="tab-content">
+                                <div class="active tab-pane" id="activity">
+                                  <!-- Post -->
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                      <label for="inputName">Checks</label>
+                                      <div class="text-muted">
+                                        <label>{{$checks}}</label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="inputDescription">Proyectos</label>
+                                      <div class="text-muted">
+                                        <label>{{$numProyectosUsuario}}</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.post -->
+                                </div>
+                              </div>
+                              <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                          </div>
+                          <!-- /.nav-tabs-custom -->
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+                    </div>
                     
 
                   </h4>
@@ -78,13 +145,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer no-print">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.2-pre
-    </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

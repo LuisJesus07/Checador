@@ -82,12 +82,16 @@ class UserController extends Controller
         
     }
 
-    public function detail($id){
+    public function detail($id = null){
 
         if(Auth::user()->hasPermissionTo('Administrar usuarios') || 
            Auth::user()->hasPermissionTo('Visualizar usuarios') ){
 
             $usuario = User::find($id);
+
+            if(empty($usuario)){
+                $usuario = Auth::user();
+            }
         
             $proyectos = Project::where('status','active')->get();
 
@@ -95,9 +99,11 @@ class UserController extends Controller
 
             $numProyectosUsuario = $usuario->projects()->get()->count();
 
+            $misProyectos = $usuario->projects()->get();
+
             $infoChecks = $usuario->checks()->whereStatus('concluida')->orderBy('id','desc')->limit(4)->get();
 
-            return view('admin.users.user_detail',compact('usuario','proyectos','checks','numProyectosUsuario','infoChecks'));
+            return view('admin.users.user_detail',compact('usuario','proyectos','checks','numProyectosUsuario','infoChecks','misProyectos'));
 
         }else{
             return redirect()->back()->with('error','No permitido');

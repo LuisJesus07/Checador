@@ -22,6 +22,9 @@ class CheckController extends Controller
 
 			$idUsuario = $usuario->id;
 			$check = Check::where('status','no_concluida')->where('user_id', $idUsuario)->get();
+			$checks = $usuario->checks()->whereStatus('concluida')->get()->count();
+
+            $numProyectosUsuario = $usuario->projects()->get()->count();
 
 			//si no hay un check sin concluir crea uno nuevo
 			if(empty($check->last())){
@@ -37,7 +40,7 @@ class CheckController extends Controller
 		    	$checkEntrada = true;
 
 		    	if($check->save()){
-		    		return view('checador.index', compact('usuario','checkEntrada'));
+		    		return view('checador.index', compact('usuario','checkEntrada','checks','numProyectosUsuario'));
 		    	}
 
 			}else{
@@ -57,7 +60,11 @@ class CheckController extends Controller
 				$checkSalida = true;
 
 				if($check->save()){
-					return view('checador.index', compact('usuario', 'checkSalida'));
+
+					//madar actualizados los ckecks
+					$checks = $usuario->checks()->whereStatus('concluida')->get()->count();
+
+					return view('checador.index', compact('usuario', 'checkSalida','checks','numProyectosUsuario'));
 				}
 			}
 
