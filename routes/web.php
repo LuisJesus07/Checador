@@ -19,25 +19,51 @@ Auth::routes();
 
 Route::get('/pruebaRelacion', function(){
 
-	$usuario = App\User::findOrFail(1);
+	$usuario = App\User::findOrFail(2);
 
-	return $usuario->checks()->whereStatus('concluida')->get()->count();
+	return $usuario->checks()->whereStatus('concluida')->orderBy('fecha','asc')->get();
 });
 
 Route::get('/pruebaUserProject', function(){
 
-	//$usuario = App\User::findOrFail(2);
+	$usuario = App\User::findOrFail(2);
+
+	$existe = $usuario->projects()->where('project_id',1)->get();
+
+	$existe = sizeof($existe);
+
+	if($existe == 0){
+		return $usuario->projects()->where('project_id',1)->get();
+	}else{
+		echo "El usuario ya esta inscrito";
+	}
+
+	//return $tam;
+
+	/*if(isset($existe)){
+		return "existe";
+	}else{
+		return "no existe";
+	}*/
+
+	//return $existe;
+
+	/*if(empty($usuario->projects()->where('project_id',1)->get())){
+		return $usuario->projects()->where('project_id',1)->get();
+	}else{
+		return "Este usuario ya esta inscrito en el proyecto";
+	}*/
+
+	//return $usuario->projects()->where('project_id',1)->get();
+
+	//$proyecto = App\Project::findOrFail(2);
 
 	//return $usuario->projects()->get();
-
-	$proyecto = App\Project::findOrFail(2);
-
-	return $proyecto->users()->get();
 
 });
 
 Route::get('/checador', function(){
-	return view('check.index');
+	return view('checador.index');
 });
 
 

@@ -23,7 +23,7 @@
                 <i class="fas fa-globe"></i> AdminLTE, Inc.
                 <small class="float-right">Date: 2/10/2014</small>
 
-                <button>Checar</button>
+                <a href="/check" class="btn btn-primary">Checar</a>
 
               </h4>
             </div>

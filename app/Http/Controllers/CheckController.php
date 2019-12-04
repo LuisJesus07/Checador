@@ -29,7 +29,7 @@ class CheckController extends Controller
 	    	$check->duracion = date('H:i:s');
 
 	    	if($check->save()){
-	    		return redirect('home')->with('success', 'Check guardado!');
+	    		return redirect('home')->with('Check guardado', 'Check guardado');
 	    	}
 
 		}else{
@@ -47,7 +47,7 @@ class CheckController extends Controller
 			$check->status = "concluida";
 
 			if($check->save()){
-				return redirect('home')->with('success', 'Salida registrada!');
+				return redirect('home')->with('Salida registrada', 'Salida registrada');
 			}
 		}    	
 

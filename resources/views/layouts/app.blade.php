@@ -40,6 +40,33 @@
                           </button>
                         </div>
                       @endif
+
+                      @if(session('Check guardado'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <strong>Entrada Registrada</strong> Tu entrada ha sido registrada con exito.
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                      @endif
+
+                      @if(session('Salida registrada'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <strong>Salida Registrada</strong> Tu Salida ha sido registrada con exito.
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                      @endif
+
+                      @if(session('ya_inscrito'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <strong>Error!</strong> El usuario ya esta inscrito a ese proyecto.
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                      @endif
                     </ol>
                   </div><!-- /.col -->
                 </div><!-- /.row -->

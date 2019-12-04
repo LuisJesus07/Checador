@@ -88,10 +88,16 @@ class UserController extends Controller
            Auth::user()->hasPermissionTo('Visualizar usuarios') ){
 
             $usuario = User::find($id);
+        
             $proyectos = Project::where('status','active')->get();
+
             $checks = $usuario->checks()->whereStatus('concluida')->get()->count();
 
-            return view('admin.users.user_detail',compact('usuario','proyectos','checks'));
+            $numProyectosUsuario = $usuario->projects()->get()->count();
+
+            $infoChecks = $usuario->checks()->whereStatus('concluida')->orderBy('id','desc')->limit(4)->get();
+
+            return view('admin.users.user_detail',compact('usuario','proyectos','checks','numProyectosUsuario','infoChecks'));
 
         }else{
             return redirect()->back()->with('error','No permitido');
@@ -106,7 +112,17 @@ class UserController extends Controller
 
             $usuario = User::find($id);
 
-            $usuario->projects()->attach($request['proyecto']);
+            $ya_inscrito = sizeof($usuario->projects()->where('project_id',$request['proyecto'])->get());
+
+            if($ya_inscrito == 0){
+                
+                $usuario->projects()->attach($request['proyecto']);
+            
+            }else{
+                 return redirect()->back()->with('ya_inscrito','error'); 
+            }
+
+            
 
             return redirect()->back()->with('success','ok'); 
         
