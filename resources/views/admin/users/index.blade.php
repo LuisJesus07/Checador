@@ -6,10 +6,10 @@
 
 @section('content')
 	
-	<!--
+	
 	<ol class="float-sm-right">
       <button class="btn btn-primary" data-toggle="modal" data-target="#Modal">Agregar</button>
-    </ol>-->
+    </ol>
 	
 	<div class="row d-flex align-items-stretch registros">
 		@foreach($usuarios as $usuario)

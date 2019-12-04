@@ -34,12 +34,13 @@
         <!-- /.lockscreen-image -->
 
         <!-- lockscreen credentials (contains the form) -->
-        <form class="lockscreen-credentials">
+        <form class="lockscreen-credentials" method="POST" action="/checador">
+          @csrf
           <div class="input-group">
-            <input type="password" class="form-control" placeholder="matricula">
+            <input type="text" name="matricula" class="form-control" placeholder="matricula">
 
             <div class="input-group-append">
-              <button type="button" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
+              <button type="submit" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
             </div>
           </div>
         </form>

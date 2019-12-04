@@ -10,12 +10,24 @@ use DateTime;
 
 class CheckController extends Controller
 {
+
+	public function index(Request $request){
+
+		$usuario = User::where('matricula', $request['matricula'])->get()->first();
+
+		if(empty($usuario)){
+			return redirect()->back()->with('error','No existe ese usuario');
+		}else{
+
+			return view('checador.index', compact('usuario'));
+		}
+	} 
     
-    public function index(){
+    public function checar($id){
 
-    	$idUsuario = Auth::user()->id;
+    	$idUsuario = $id;
 
-		$check = Check::where('status','no_concluida')->get();
+		$check = Check::where('status','no_concluida')->where('user_id', $idUsuario)->get();
 
 		//si no hay un check sin concluir crea uno nuevo
 		if(empty($check->last())){

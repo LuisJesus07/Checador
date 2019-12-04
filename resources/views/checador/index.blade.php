@@ -27,7 +27,11 @@
                 <i class="fas fa-globe"></i> AdminLTE, Inc.
                 <small class="float-right">Date: 2/10/2014</small>
 
-                <a href="/check" class="btn btn-primary">Checar</a>
+                <h3>Usuario</h3>
+                <label>{{$usuario->nombre}}</label>
+                
+
+                <a href="/check/{{$usuario->id}}" class="btn btn-primary">Checar</a>
 
               </h4>
             </div>
