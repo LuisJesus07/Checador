@@ -32,7 +32,7 @@ function cronometro(segundos){
 
 			if(segundos <= 0){
 
-				window.location.href = '/home';
+				window.location.href = '/';
 
 				clearInterval(tiempo);
 			}
