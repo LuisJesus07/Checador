@@ -2,54 +2,66 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('app_assets/sweetalert/sweetalert.css')}}">
 
-@section('title','Usuarios')
+@section('title','Modulo de Usuarios')
 
 @section('content')
-	
-	
-	<ol class="float-sm-right">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#Modal">Agregar</button>
-    </ol>
-	
-	<div class="row d-flex align-items-stretch registros">
-		@foreach($usuarios as $usuario)
-			<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch registro-{{$usuario->id}}">
-		      <div class="card bg-light">
-		        <div class="card-header text-muted border-bottom-0">
-		          Digital Strategist
-		        </div>
-		        <div class="card-body pt-0">
-		          <div class="row">
-		            <div class="col-7">
-		              <h2 class="lead"><b>{{$usuario->nombre}} {{$usuario->apellidos}}</b></h2>
-		              <ul class="ml-4 mb-0 fa-ul text-muted">
-		              	<li class="small"><span class="fa-li"><i class="fas fa-lg fa-birthday-cake"></i></span> Fecha de nacimiento: {{$usuario->fechaNacimiento}}</li>
-		                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-at"></i></span> Correo Electronico: {{$usuario->email}}</li>
-		                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefono #: {{$usuario->telefono}}</li>
-		              </ul>
-		            </div>
-		            <div class="col-5 text-center">
-		              <img src="{{asset('app_assets/dist/img/userIcon.jpg')}}" alt="" class="img-circle img-fluid">
-		            </div>
-		          </div>
-		        </div>
-		        <div class="card-footer">
-		          <div class="text-right">
-		          	<button href="#" class="btn btn-sm btn-outline-danger" onclick="deleteThis({{$usuario->id}}, this)">
-		              <i class="fas fa-trash-alt"></i> Eliminar
-		            </button>
-		            <a href="#" class="btn btn-sm btn-warning" onclick="getDataBack({{$usuario->id}})" data-toggle="modal" data-target="#ModalEdit">
-		              <i class="fas fa-edit"></i> Editar
-		            </a>
-		            <a href="/usuario_detail/{{$usuario->id}}" class="btn btn-sm btn-primary">
-		              <i class="fas fa-user"></i> Ver Perfil
-		            </a>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-	    @endforeach
+
+    <div class="card">
+     	<div class="card-header">
+     		<div class="container">
+     			<div class="row">
+					<div class="col-md">
+						<h3>Usuarios Registrados</h3>
+					</div>
+					<div class="col-md">
+						<button class="btn btn-primary float-right" data-toggle="modal" data-target="#Modal">Agregar</button>
+					</div>
+				</div>
+     		</div>
+     	</div>	
+     	<div class="card-body">
+     		<div class="row d-flex align-items-stretch registros">
+				@foreach($usuarios as $usuario)
+					<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch registro-{{$usuario->id}}">
+				      <div class="card bg-light">
+				        <div class="card-header text-muted border-bottom-0">
+				          Digital Strategist
+				        </div>
+				        <div class="card-body pt-0">
+				          <div class="row">
+				            <div class="col-7">
+				              <h2 class="lead"><b>{{$usuario->nombre}} {{$usuario->apellidos}}</b></h2>
+				              <ul class="ml-4 mb-0 fa-ul text-muted">
+				              	<li class="small"><span class="fa-li"><i class="fas fa-lg fa-birthday-cake"></i></span> Fecha de nacimiento: {{$usuario->fechaNacimiento}}</li>
+				                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-at"></i></span> Correo Electronico: {{$usuario->email}}</li>
+				                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefono #: {{$usuario->telefono}}</li>
+				              </ul>
+				            </div>
+				            <div class="col-5 text-center">
+				              <img src="{{asset('app_assets/dist/img/userIcon.jpg')}}" alt="" class="img-circle img-fluid">
+				            </div>
+				          </div>
+				        </div>
+				        <div class="card-footer">
+				          <div class="text-right">
+				          	<button href="#" class="btn btn-danger btn-sm" onclick="deleteThis({{$usuario->id}}, this)">
+				              <i class="fas fa-trash"></i> Eliminar
+				            </button>
+				            <a href="#" class="btn btn-info btn-sm" onclick="getDataBack({{$usuario->id}})" data-toggle="modal" data-target="#ModalEdit">
+				              <i class="fas fa-pencil-alt"></i> Editar
+				            </a>
+				            <a href="/usuario_detail/{{$usuario->id}}" class="btn btn-primary btn-sm">
+				              <i class="fas fa-folder"></i> Ver
+				            </a>
+				          </div>
+				        </div>
+				      </div>
+				    </div>
+			    @endforeach
+		    </div>	
+     	</div>
     </div>
+
 
 
     @section('modals')

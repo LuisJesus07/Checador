@@ -13,7 +13,7 @@ class CheckController extends Controller
 
 	public function index(Request $request){
 
-		$usuario = User::where('matricula', $request['matricula'])->get()->first();
+		$usuario = User::where('matricula', $request['matricula'])->where('status','active')->get()->first();
 	
 
 		if(empty($usuario)){

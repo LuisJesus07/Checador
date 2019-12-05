@@ -16,7 +16,16 @@
 
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Proyectos Activos</h3>
+      <div class="container">
+ 			<div class="row">
+				<div class="col-md">
+					<h3 class="card-title">Proyectos Activos</h3>
+				</div>
+				<div class="col-md">
+					<button class="btn btn-primary float-right" data-toggle="modal" data-target="#Modal">Agregar</button>
+				</div>
+			</div>
+ 		</div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">

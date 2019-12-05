@@ -220,7 +220,7 @@ class UserController extends Controller
                 'message' => "No tienes los permisoso",
                 'code' => 5,
                 'data' => null
-            ], 404);
+            ], 200);
         }
 
         
