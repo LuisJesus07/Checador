@@ -15,7 +15,7 @@
           <img src="{{asset('app_assets/dist/img/userIcon.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->nombre }}</a>
+          <a href="/home" class="d-block">{{ Auth::user()->nombre }}</a>
         </div>
       </div>
 
@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
           @if(Auth::user()->role == 2 )
             <li class="nav-item ">
-              <a href="../calendar.html" class="nav-link {{ (request()->is('home*')) ? 'active' : '' }}">
+              <a href="/home" class="nav-link {{ (request()->is('home*')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard

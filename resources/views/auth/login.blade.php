@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
+  <title>UABCS DASC | Login</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,7 @@
         <div class="card">
 
             <div class="card-body login-card-body">
-              <p class="login-box-msg">Sign in to start your session</p>
+              <p class="login-box-msg">Inicia sesión con tu cuenta</p>
 
               <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -82,12 +82,7 @@
               </form>
 
 
-              <p class="mb-1">
-                <a href="forgot-password.html">I forgot my password</a>
-              </p>
-              <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
-              </p>
+              
             </div>
     
         </div>

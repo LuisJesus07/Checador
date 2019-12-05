@@ -71,7 +71,7 @@
 
       </div>
       <!-- /.lockscreen-item -->
-      <div class="help-block text-center">
+      <div class="help-block text-center" style="font-weight: bold;">
         Ingresa tu matricula para checar tu entrada
       </div>
       

@@ -21,39 +21,34 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px">
 
-      @if(!empty($checkEntrada))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Entrada Registrada</strong> Tu entrada ha sido registrada con exito.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      @endif
-
-      @if(!empty($checkSalida))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Salida Registrada</strong> Tu Salida ha sido registrada con exito.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      @endif
+      
 
     <!-- Content Header (Page header) -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="callout callout-info" style="margin-top: 1.5%;">
-              <h5><i class="fas fa-info"></i> Nota:</h5>
-              Esta pagina solo estara disponible durante unos segundos.
 
-              <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
-            </div>
+            @if(!empty($checkEntrada))
+              <div class="callout callout-info" style="margin-top: 1.5%; background: #01c34f; color: white;">
+                <h5><i class="far fa-check-circle"></i> Entrada Registrada:</h5>
+                Esta pagina solo estara disponible durante unos segundos.
 
+                <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
+              </div>
+            @endif
+
+            @if(!empty($checkSalida))
+              <div class="callout callout-info" style="margin-top: 1.5%; background: #f8b632; color: white;">
+                <h5><i class="far fa-check-circle"></i> Salida Registrada:</h5>
+                Esta pagina solo estara disponible durante unos segundos.
+
+                <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
+              </div>
+            @endif
 
             <!-- Main content -->
-            <div class="invoice p-3 mb-3">
+            <div class="invoice p-3 mb-3" style="background: #dfefef;">
               <!-- title row -->
               <div class="row">
                 <div class="col-12">
