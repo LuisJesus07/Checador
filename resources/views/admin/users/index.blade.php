@@ -80,27 +80,31 @@
 		            @csrf
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Nombre</label>
-		              <input type="text" name="nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+		              <input type="text" name="nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su nombre">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Apellidos</label>
-		              <input type="text" name="apellidos" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter lastname">
+		              <input type="text" name="apellidos" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese sus apellidos">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Fecha de Nacimiento</label>
-		              <input type="date" name="fechaNacimiento" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter birth">
+		              <input type="date" name="fechaNacimiento" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su fecha de nacimiento">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Telefono</label>
-		              <input type="text" name="telefono" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone">
+		              <input type="text" name="telefono" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su telefono">
+		            </div>
+		            <div class="form-group">
+		              <label for="exampleInputEmail1">Matricula</label>
+		              <input type="text" maxlength="10" name="matricula" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su matricula">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Email</label>
-		              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+		              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su correo">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Password</label>
-		              <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+		              <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese sus password">
 		              <small id="emailHelp" class="form-text text-muted">Minimo 8 caracteres</small>
 		            </div>
 		            <div class="modal-footer">
@@ -133,27 +137,31 @@
 
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Nombre</label>
-		              <input type="text" name="nombre" class="form-control" id="nombre_edit" aria-describedby="emailHelp" placeholder="Enter name">
+		              <input type="text" name="nombre" class="form-control" id="nombre_edit" aria-describedby="emailHelp" placeholder="Ingrese su nombre">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Apellidos</label>
-		              <input type="text" name="apellidos" class="form-control" id="apellidos_edit" aria-describedby="emailHelp" placeholder="Enter lastname">
+		              <input type="text" name="apellidos" class="form-control" id="apellidos_edit" aria-describedby="emailHelp" placeholder="Ingrese sus apellidos">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Fecha de Nacimiento</label>
-		              <input type="date" name="fechaNacimiento" class="form-control" id="fechaNacimiento_edit" aria-describedby="emailHelp" placeholder="Enter birth">
+		              <input type="date" name="fechaNacimiento" class="form-control" id="fechaNacimiento_edit" aria-describedby="emailHelp" placeholder="Ingrese su fecha de nacimiento">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Telefono</label>
-		              <input type="text" name="telefono" class="form-control" id="telefono_edit" aria-describedby="emailHelp" placeholder="Enter Phone">
+		              <input type="text" name="telefono" class="form-control" id="telefono_edit" aria-describedby="emailHelp" placeholder="Ingrese su telefono">
+		            </div>
+		            <div class="form-group">
+		              <label for="exampleInputEmail1">Matricula</label>
+		              <input type="text" name="matricula" class="form-control" id="matricula_edit" aria-describedby="emailHelp" placeholder="Ingrese su matricula">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Email</label>
-		              <input type="email" name="email" class="form-control" id="email_edit" aria-describedby="emailHelp" placeholder="Enter email">
+		              <input type="email" name="email" class="form-control" id="email_edit" aria-describedby="emailHelp" placeholder="Ingrese su email">
 		            </div>
 		            <div class="form-group">
 		              <label for="exampleInputEmail1">Password</label>
-		              <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter password">
+		              <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Ingrese su password">
 		              <small id="emailHelp" class="form-text text-muted">Minimo 8 caracteres</small>
 		            </div>
 		            <div class="modal-footer">
@@ -190,6 +198,7 @@
 	        $("#fechaNacimiento_edit").val(response.data.fechaNacimiento);
 	        $("#telefono_edit").val(response.data.telefono);
 	        $("#email_edit").val(response.data.email);
+	        $('#matricula_edit').val(response.data.matricula);
 
 	        $("#id").val(id);
 	      })
