@@ -31,7 +31,7 @@
 
             @if(!empty($checkEntrada))
               <div class="callout callout-info" style="margin-top: 1.5%; background: #01c34f; color: white;">
-                <h5><i class="far fa-check-circle"></i> Entrada Registrada:</h5>
+                <h5><i class="far fa-check-circle"></i> Entrada Registrada</h5>
                 Esta pagina solo estara disponible durante unos segundos.
 
                 <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
@@ -39,8 +39,8 @@
             @endif
 
             @if($check->status == "concluida")
-              <div class="callout callout-info" style="margin-top: 1.5%; background: #f8b632; color: white;">
-                <h5><i class="far fa-check-circle"></i> Salida Registrada:</h5>
+              <div class="callout callout-info" style="margin-top: 1.5%; background: #01c34f; color: white;">
+                <h5><i class="far fa-check-circle"></i> Salida Registrada</h5>
                 Esta pagina solo estara disponible durante unos segundos.
 
                 <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
@@ -49,7 +49,7 @@
 
             @if($check->status == "noAceptado")
               <div class="callout callout-info" style="margin-top: 1.5%; background: #f74341; color: white;">
-                <h5><i class="far fa-check-circle"></i> Check no Registrado:</h5>
+                <h5><i class="fas fa-ban"></i> Check no Registrado</h5>
                 La entrada y la salida no fueron registradas el mismo dia.
 
                 <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
@@ -128,15 +128,15 @@
                                       </div>
                                     @endif
                                     <div class="form-group">
-                                      <label for="inputName">Total de Checks</label>
+                                      <label for="inputName">Checks</label>
                                       <div class="text-muted">
-                                        <label>{{$checks}}</label>
+                                        <label class="ml-4"><a href="#">Total checks :</a> {{$checks}}</label>
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label for="inputDescription">Proyectos</label>
                                       <div class="text-muted">
-                                        <label>{{$numProyectosUsuario}}</label>
+                                        <label class="ml-4"><a href="#">Total proyectos :</a>{{$numProyectosUsuario}}</label>
                                       </div>
                                     </div>
                                   </div>
