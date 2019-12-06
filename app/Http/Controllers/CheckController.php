@@ -40,11 +40,11 @@ class CheckController extends Controller
 		    	$checkEntrada = true;
 
 		    	if($check->save()){
-		    		return view('checador.index', compact('usuario','checkEntrada','checks','numProyectosUsuario'));
+		    		return view('checador.index', compact('usuario','checkEntrada','checks','numProyectosUsuario','check'));
 		    	}
 
 			}else{
-				//si no se ha concluido la actividad checar la salida
+				//si no se ha concluido la actividad, checar la salida
 				$idCheckPendiente =  $check->last()->id;
 
 				$check = Check::find($idCheckPendiente);
@@ -64,7 +64,7 @@ class CheckController extends Controller
 					//madar actualizados los ckecks
 					$checks = $usuario->checks()->whereStatus('concluida')->get()->count();
 
-					return view('checador.index', compact('usuario', 'checkSalida','checks','numProyectosUsuario'));
+					return view('checador.index', compact('usuario', 'checkSalida','checks','numProyectosUsuario','check'));
 				}
 			}
 

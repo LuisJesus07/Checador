@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Invoice</title>
+  <title>UABCS DASC | Checador</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -100,8 +100,26 @@
                                 <div class="active tab-pane" id="activity">
                                   <!-- Post -->
                                   <div class="card-body">
+                                    @if(!empty($checkEntrada))
+                                      <div class="form-group">
+                                        <label for="inputName">Info. Check</label>
+                                        <div class="text-muted">
+                                          <label class="ml-4"><a href="#">Hora de entrada :</a> {{$check->horaEntrada}}</label>
+                                        </div>
+                                      </div>
+                                    @endif
+                                    @if(!empty($checkSalida))
+                                      <div class="form-group">
+                                        <label for="inputName">Info. Check</label>
+                                        <div class="text-muted">
+                                          <label class="ml-4"><a href="#">Hora de entrada :</a> {{$check->horaEntrada}}</label><br>
+                                          <label class="ml-4"><a href="#">Hora de salida :</a> {{$check->horaSalida}}</label><br>
+                                          <label class="ml-4"><a href="#">Duración :</a> {{$check->duracion}}</label>
+                                        </div>
+                                      </div>
+                                    @endif
                                     <div class="form-group">
-                                      <label for="inputName">Checks</label>
+                                      <label for="inputName">Total de Checks</label>
                                       <div class="text-muted">
                                         <label>{{$checks}}</label>
                                       </div>
