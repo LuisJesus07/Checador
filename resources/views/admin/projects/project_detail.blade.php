@@ -64,18 +64,22 @@
             <thead>
               <tr>
                 <th>Nombre</th>
+                @if(Auth::user()->role == 1)
                 <th>Ver</th>
+                @endif
               </tr>
             </thead>
             <tbody>
               @foreach($users as $user)
               <tr>
                 <td>{{$user->nombre}} {{$user->apellidos}}</td>
-                <td class="py-0 align-middle">
-                  <div class="btn-group btn-group-sm">
-                    <a href="/usuario_detail/{{$user->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                  </div>
-                </td>
+                @if(Auth::user()->role == 1)
+                  <td class="py-0 align-middle">
+                    <div class="btn-group btn-group-sm">
+                      <a href="/usuario_detail/{{$user->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                    </div>
+                  </td>
+                @endif
                </tr>
                @endforeach
               

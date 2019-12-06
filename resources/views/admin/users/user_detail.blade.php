@@ -82,7 +82,7 @@
               <!-- /.tab-pane -->
               <div class="tab-pane" id="timeline">
                 <!-- The timeline -->
-                @foreach($infoChecks as $infoCheck)
+                
                 <div class="timeline timeline-inverse">
                   <!-- timeline time label -->
                   
@@ -90,8 +90,8 @@
                   <!-- timeline item -->
                   <div>
                     <i class="far fa-clock bg-primary"></i>
-
-                    <div class="timeline-item">
+                    @foreach($infoChecks as $infoCheck)
+                    <div class="timeline-item mb-4">
                       <span class="time"><i class="fas fa-calendar-alt"></i> {{$infoCheck->fecha}}</span>
                       <h3 class="timeline-header">Actividad Completada</h3>
 
@@ -104,10 +104,10 @@
                         
                       </div>
                     </div>
+                    @endforeach
                   </div>
                   <!-- END timeline item -->
                 </div>
-                @endforeach
               </div>
               <!-- /.tab-pane -->
               @if(Auth::user()->role == 1 )
@@ -137,13 +137,12 @@
                 <div class="tab-pane" id="settings">
                   <div class="timeline timeline-inverse">
                       <div>
-                        <i class="fas fa-project-diagram bg-info"></i>
-
                         @foreach($misProyectos as $proyecto)
-                          <div class="timeline-item">
+                          <i class="fas fa-project-diagram bg-info"></i>
+                          <div class="timeline-item mb-2">
                             <span class="time"><i class="far fa-clock"></i> {{$proyecto->created_at}}</span>
 
-                            <h3 class="timeline-header border-0"><a>{{$proyecto->nombre}}</a>
+                            <h3 class="timeline-header border-0"><a href="proyecto_detail/{{$proyecto->id}}">{{$proyecto->nombre}}</a>
                             </h3>
                           </div>
                         @endforeach
