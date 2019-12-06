@@ -34,6 +34,9 @@
               <li class="list-group-item">
                 <b>Email</b> <a class="float-right">{{$usuario->email}}</a>
               </li>
+              <li class="list-group-item">
+                <b>Matricula</b> <a class="float-right">{{$usuario->matricula}}</a>
+              </li>
             </ul>
 
           </div>
