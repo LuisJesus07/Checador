@@ -46,10 +46,19 @@ class UserController extends Controller
 
             $request['password'] = bcrypt($request['password']);
 
-            if(User::create($request->all())){
-                
+            $usuario = new User();
+            $usuario->fill($request->all());
+            $usuario->role = 2;
+            $usuario->assignRole($usuario->role);
+
+            if($usuario->save()){
                 return redirect()->back()->with('success','ok');
             }
+
+            /*if(User::create($request->all())){
+                
+                return redirect()->back()->with('success','ok');
+            }*/
 
             return redirect()->back()->with('error','ok');
         
