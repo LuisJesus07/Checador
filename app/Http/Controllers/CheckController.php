@@ -49,22 +49,29 @@ class CheckController extends Controller
 
 				$check = Check::find($idCheckPendiente);
 
-				$entrada = new DateTime($check->horaEntrada);
-				$salida = new DateTime(date('H:i:s'));
-				$duracion = $entrada->diff($salida);
+				//verificar que el check se hizo el mismo dia
+				if($check->fecha == date('Y-m-d')){
+					$entrada = new DateTime($check->horaEntrada);
+					$salida = new DateTime(date('H:i:s'));
+					$duracion = $entrada->diff($salida);
+					$check->horaSalida = date('H:i:s');
+					$check->duracion = $duracion->format('%H:%i:%s');
+					$check->status = "concluida";
+				}else{
+					$check->horaSalida = "00:00:00";
+					$check->duracion = "00:00:00";
+					$check->status = "noAceptado";
 
-				$check->horaSalida = date('H:i:s');
-				$check->duracion = $duracion->format('%H:%i:%s');
-				$check->status = "concluida";
+				}
 
-				$checkSalida = true;
+				
 
 				if($check->save()){
 
 					//madar actualizados los ckecks
 					$checks = $usuario->checks()->whereStatus('concluida')->get()->count();
 
-					return view('checador.index', compact('usuario', 'checkSalida','checks','numProyectosUsuario','check'));
+					return view('checador.index', compact('usuario','checks','numProyectosUsuario','check'));
 				}
 			}
 

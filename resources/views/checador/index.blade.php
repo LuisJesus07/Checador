@@ -38,10 +38,19 @@
               </div>
             @endif
 
-            @if(!empty($checkSalida))
+            @if($check->status == "concluida")
               <div class="callout callout-info" style="margin-top: 1.5%; background: #f8b632; color: white;">
                 <h5><i class="far fa-check-circle"></i> Salida Registrada:</h5>
                 Esta pagina solo estara disponible durante unos segundos.
+
+                <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
+              </div>
+            @endif
+
+            @if($check->status == "noAceptado")
+              <div class="callout callout-info" style="margin-top: 1.5%; background: #f74341; color: white;">
+                <h5><i class="far fa-check-circle"></i> Check no Registrado:</h5>
+                La entrada y la salida no fueron registradas el mismo dia.
 
                 <h4 class="segundos float-right" style="font-size: 50px; margin-top: -3%; font-weight: bold;"></h4>
               </div>
@@ -108,7 +117,7 @@
                                         </div>
                                       </div>
                                     @endif
-                                    @if(!empty($checkSalida))
+                                    @if($check->status == "concluida")
                                       <div class="form-group">
                                         <label for="inputName">Info. Check</label>
                                         <div class="text-muted">
