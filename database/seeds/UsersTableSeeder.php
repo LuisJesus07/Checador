@@ -28,9 +28,20 @@ class UsersTableSeeder extends Seeder
         $user->matricula = "2016082325";
         $user->fechaNacimiento = "1980-12-27";
         $user->telefono = "612374785";
-        $user->email = "JuanDiego@gmail.com";
+        $user->email = "Juan@gmail.com";
         $user->password = bcrypt("12345678");
         $user->role = 2; 
+        $user->save();
+
+        $user = new User();
+        $user->nombre = "Jose Alfredo";
+        $user->apellidos = "Trasviña Fischer";
+        $user->matricula = "2016935649";
+        $user->fechaNacimiento = "1990-04-15";
+        $user->telefono = "6124803927";
+        $user->email = "Alfredo@gmail.com";
+        $user->password = bcrypt("12345678");
+        $user->role = 2;
         $user->save();
     }
 }
